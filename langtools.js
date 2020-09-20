@@ -1,5 +1,3 @@
-const { ENETUNREACH } = require("constants");
-
 function lexer(code){
     const regex = {
         //number: /^\d+\b/,
@@ -242,7 +240,6 @@ function run(code){
 
     const result = generate(ast);
     console.log(result);
-
     const __MAIN__ = Function('', result);
     try{
         __MAIN__();
@@ -252,4 +249,4 @@ function run(code){
     }
 }
 
-module.exports = run;
+//module.exports = run;
