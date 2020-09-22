@@ -5,10 +5,12 @@ function lexer(code){
         string: /^"([^"]*)"/,
         ident:  /^[а-яА-Я0-9_]+/,
         //ident:   /^[а-яА-Я_][а-яА-Я0-9_]*/,
-        skip:   /^\s*(![^!]*!)?\s*/,
+        
+        //skip:   /^\s*(![^!]*!)?\s*/,
+        skip:   /^(\s|![^!]*!)*/,
         parens: /^[()]/,
 
-        errorShow:  /^\S*\b/
+        errorShow:  /^\S*(\b)?/
     };
 
     const tokens = [];
@@ -46,7 +48,7 @@ function parser(tokens){
         const ast = Object.create(null);
         position++;
         const name = tokens[position];
-        if(name.type != 'id'){
+        if(!name || name.type != 'id'){
             ast.error = 'Функция должна иметь имя';
             return ast
         }
@@ -232,6 +234,7 @@ function run(code){
             catchAstErrors(each);
         }
     }
+    catchAstErrors(ast);
 
     if(astErrors.length > 0){
         astErrors.forEach(elem => console.log(elem));
@@ -240,8 +243,8 @@ function run(code){
 
     const result = generate(ast);
     console.log(result);
-    const __MAIN__ = Function('', result);
     try{
+        const __MAIN__ = Function('', result);
         __MAIN__();
     }
     catch(e){
