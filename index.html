@@ -3,12 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <title>Язык программирования ЛИС</title>
+        <style>
+            button{
+                background-color: rgb(0, 186, 199);
+                position: relative;
+                color: white;
+                font-size: 18px;
+                padding: 5px 40px;
+                border-radius: 12px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+        </style>
     </head>
     <body>
-        <textarea rows="25" cols="100" name="code" id="codeArea" style="font-size: 18px;"></textarea>
-        <button onclick="runCode()" 
-            style="background-color: rgb(86, 221, 255); position: relative; top: 25px; left: -1025px; color: white; font-size: 18px; padding: 5px 40px; border-radius: 12px;">RUN</button>
-
+        <div style="position: absolute; left: 50%; right: 50%; margin-right: -50%; transform: translate(-50%, 0%);">
+            <div>
+                <textarea rows="25" cols="100" name="code" id="codeArea" style="font-size: 18px; resize: unset;"></textarea>
+                <button onclick="runCode()" style="position: static;">RUN</button>
+            </div>
+            <textarea rows="10" cols="100" name="console" id="console" style="font-size: 15px; resize: unset;" readonly></textarea>
+        </div>
 
         <script src="./langtools.js"></script>
         <script src="./runner.js"></script>
