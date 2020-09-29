@@ -199,9 +199,10 @@ function generate(ast){
 
     const preCode = `
 
-const вывести = console.log;
+const Вывод = console.log;
 const Правда = true;
 const Ложь = false;
+const Ввод = prompt;
 
 `;
 
@@ -242,13 +243,16 @@ function run(code){
     }
 
     const result = generate(ast);
-    console.log(result);
+    console.log('...Начало вывода...');
     try{
         const __MAIN__ = Function('', result);
         __MAIN__();
     }
     catch(e){
         console.log('Ошибка выполнения');
+    }
+    finally{
+        console.log('...Конец вывода...');
     }
 }
 

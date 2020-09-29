@@ -13,3 +13,11 @@ function runCode(){
     const source = codeArea.value;
     run(source);
 }
+
+const myConsole = document.getElementById('console');
+
+function readlineToConsole(text){
+    myConsole.value += text += '\r\n';
+}
+
+console.log = readlineToConsole;
