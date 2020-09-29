@@ -8,16 +8,24 @@ codeArea.onkeydown = function(e){
         this.selectionEnd = s+1; 
     }
 }
-
+let runCounter = 0;
 function runCode(){
+    runCounter++;
+    console.log(`ЗАПУСК #${runCounter}`);
     const source = codeArea.value;
-    run(source);
+    const result = run(source);
+    console.log('');
+
+    if(result){
+        console.warn(js_beautify(result));
+    }
 }
 
 const myConsole = document.getElementById('console');
 
 function readlineToConsole(text){
     myConsole.value += text += '\r\n';
+    myConsole.scrollTop = myConsole.scrollHeight;
 }
 
 console.log = readlineToConsole;

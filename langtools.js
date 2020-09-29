@@ -199,11 +199,12 @@ function generate(ast){
 
     const preCode = `
 
-const Вывод = console.log;
-const Правда = true;
-const Ложь = false;
-const Ввод = prompt;
-
+const Вывод     = console.log;
+const Правда    = true;
+const Ложь      = false;
+const Ввод      = prompt;
+const Число     = Number;
+const Строка    = String;
 `;
 
     return preCode + getArg(ast);
@@ -243,17 +244,18 @@ function run(code){
     }
 
     const result = generate(ast);
-    console.log('...Начало вывода...');
+    //console.log('...Начало вывода...');
     try{
         const __MAIN__ = Function('', result);
         __MAIN__();
+        return result;
     }
     catch(e){
         console.log('Ошибка выполнения');
     }
-    finally{
+    /*finally{
         console.log('...Конец вывода...');
-    }
+    }*/
 }
 
 //module.exports = run;

@@ -13,18 +13,34 @@
                 border-radius: 12px;
                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
+            body{
+                background-color: rgb(10, 10, 10);
+            }
+            textarea{
+                resize: unset;
+                font-size: 18px;
+                background-color: rgb(48, 48, 48);
+                color: rgb(255, 255, 0);
+            }
         </style>
     </head>
     <body>
         <div style="position: absolute; left: 50%; right: 50%; margin-right: -50%; transform: translate(-50%, 0%);">
-            <div>
-                <textarea rows="25" cols="100" name="code" id="codeArea" style="font-size: 18px; resize: unset;"></textarea>
-                <button onclick="runCode()" style="position: static;">RUN</button>
-            </div>
-            <textarea rows="10" cols="100" name="console" id="console" style="font-size: 15px; resize: unset;" readonly></textarea>
+            <!--<div>-->
+                <textarea rows="25" cols="100" name="code" id="codeArea" spellcheck="false"></textarea>
+                </br>
+                <button onclick="runCode()" style="position: relative; background-color: rgb(185, 173, 0);">RUN</button>
+                <button style="position: relative; left: 20px;">INFO</button>
+                </br><br></br>
+            <!--</div>-->
+            <textarea rows="10" cols="100" name="console" id="console" readonly spellcheck="false"></textarea>
         </div>
 
         <script src="./langtools.js"></script>
         <script src="./runner.js"></script>
+
+        <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.13.0/js/lib/beautify.js"></script>
+        <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.13.0/js/lib/beautify-css.js"></script>
+        <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.13.0/js/lib/beautify-html.js"></script>
     </body>
 </html>
