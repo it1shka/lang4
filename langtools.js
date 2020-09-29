@@ -162,7 +162,9 @@ function generate(ast){
         return code;
     }
 
-    specForms['Вернуть'] = expr => `return ${expr}`;
+    specForms['Вернуть']     = expr => `return ${expr}`;
+    specForms['Продолжить']  = ()   => `continue`;
+    specForms['Выйти']       = ()   => `break`;
 
     specForms['Сложить']               = (a, b) => `(${a}) + (${b})`;
     specForms['Отнять']                = (a, b) => `(${a}) - (${b})`;
@@ -196,6 +198,7 @@ function generate(ast){
     specForms['СписокУдалить']         = (list, index) => `${list}.splice(${index}, 1)`;
     specForms['СписокКопировать']      = list => `${list}.slice()`;
     specForms['СписокДлина']           = list => `${list}.length`;
+
 
     const preCode = `
 

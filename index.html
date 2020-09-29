@@ -31,6 +31,9 @@
                 </br>
                 <button onclick="runCode()" style="position: relative; background-color: rgb(185, 173, 0);">RUN</button>
                 <button style="position: relative; left: 20px;">INFO</button>
+                <button onclick="loadFile()" style="position: relative; left: 40px;">LOAD</button>
+                <input id="file-input" type="file" style="display: none;" />
+                <button style="position: relative; left: 60px;">SAVE</button>
                 </br><br></br>
             <!--</div>-->
             <textarea rows="10" cols="100" name="console" id="console" readonly spellcheck="false"></textarea>
@@ -38,9 +41,5 @@
 
         <script src="./langtools.js"></script>
         <script src="./runner.js"></script>
-
-        <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.13.0/js/lib/beautify.js"></script>
-        <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.13.0/js/lib/beautify-css.js"></script>
-        <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.13.0/js/lib/beautify-html.js"></script>
     </body>
 </html>

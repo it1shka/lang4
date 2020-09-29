@@ -1,3 +1,4 @@
+//CODE AREA
 const codeArea = document.getElementById('codeArea');
 
 codeArea.onkeydown = function(e){
@@ -17,10 +18,11 @@ function runCode(){
     console.log('');
 
     if(result){
-        console.warn(js_beautify(result));
+        console.warn(result);
     }
 }
 
+//CONSOLE
 const myConsole = document.getElementById('console');
 
 function readlineToConsole(text){
@@ -29,3 +31,15 @@ function readlineToConsole(text){
 }
 
 console.log = readlineToConsole;
+
+//LOAD FILE
+const invisibleInput = document.getElementById('file-input');
+
+invisibleInput.onchange = e => {
+    let file = invisibleInput.files[0];
+    console.warn(file);
+};
+
+function loadFile(){
+    invisibleInput.click();
+}
