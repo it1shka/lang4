@@ -37,9 +37,37 @@ const invisibleInput = document.getElementById('file-input');
 
 invisibleInput.onchange = e => {
     let file = invisibleInput.files[0];
-    console.warn(file);
+    if(file && file.type == ''){
+        console.log(`ФАЙЛ ${file.name} ЗАГРУЖЕН`);
+        let fr = new FileReader();
+        fr.onload = () => {
+            codeArea.value = fr.result;
+        }
+
+        fr.readAsText(file);
+    }
+    else{
+        console.log('ФАЙЛ НЕ ВЫБРАН');
+    }
+    console.log('');
 };
 
 function loadFile(){
     invisibleInput.click();
+}
+
+//SAVE FILE
+const invisibleA = document.getElementById('save-file');
+let counter = 1;
+function saveFile(){
+    const code = codeArea.value;
+    let file = new Blob([code], {type: ''});
+    const url = URL.createObjectURL(file);
+    const fileName = `Task${counter}`;
+    invisibleA.href = url;
+    invisibleA.download = fileName + '.лис';
+    invisibleA.click();
+    console.log(`ФАЙЛ ${fileName} СКАЧАН`);
+    console.log('');
+    counter++;
 }

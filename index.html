@@ -33,7 +33,8 @@
                 <button style="position: relative; left: 20px;">INFO</button>
                 <button onclick="loadFile()" style="position: relative; left: 40px;">LOAD</button>
                 <input id="file-input" type="file" style="display: none;" />
-                <button style="position: relative; left: 60px;">SAVE</button>
+                <button onclick="saveFile()" style="position: relative; left: 60px;">SAVE</button>
+                <a id="save-file" href="" download="" style="display: none;"></a>
                 </br><br></br>
             <!--</div>-->
             <textarea rows="10" cols="100" name="console" id="console" readonly spellcheck="false"></textarea>
